@@ -1,14 +1,22 @@
 import PropTypes from "prop-types";
 
-PrimaryButton.propTypes = {
+SecondaryButton.propTypes = {
     type: PropTypes.oneOf(["button", "submit", "reset"]),
     className: PropTypes.string,
-    variant: PropTypes.oneOf(["secondary", 'light-outline', 'white-outline']),
+    variant: PropTypes.oneOf(["secondary", "light-outline", "white-outline"]),
     processing: PropTypes.bool,
     children: PropTypes.node,
-}
+};
 
-export default function SecondaryButton({ type = 'button', className = '', disabled, processing, children, ...props }) {
+export default function SecondaryButton({
+    type,
+    className = "",
+    disabled,
+    children,
+    processing,
+    variant = "secondary",
+    ...props
+}) {
     return (
         <button
             {...props}

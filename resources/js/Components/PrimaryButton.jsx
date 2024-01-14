@@ -9,6 +9,7 @@ PrimaryButton.propTypes = {
 }
 
 export default function PrimaryButton({
+    type,
     className = "",
     disabled,
     children,

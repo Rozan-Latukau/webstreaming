@@ -1,14 +1,22 @@
 import PropTypes from "prop-types";
 
-PrimaryButton.propTypes = {
+DangerButton.propTypes = {
     type: PropTypes.oneOf(["button", "submit", "reset"]),
     className: PropTypes.string,
-    variant: PropTypes.oneOf(["danger", 'light-outline', 'white-outline']),
+    variant: PropTypes.oneOf(["danger", "light-outline", "white-outline"]),
     processing: PropTypes.bool,
     children: PropTypes.node,
-}
+};
 
-export default function DangerButton({ className = '', disabled, processing, children, ...props }) {
+export default function DangerButton({
+    type,
+    className = "",
+    disabled,
+    children,
+    processing,
+    variant = "danger",
+    ...props
+}) {
     return (
         <button
             {...props}
