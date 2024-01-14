@@ -1,14 +1,14 @@
 .btn-primary{
-    @apply bg-alerange text-white;
+    @apply bg-violet-600 text-white hover:bg-alerange;
 }
 .btn-secondary {
-    @apply bg-yellow-500 text-white;
+    @apply bg-yellow-500 text-white ;
 }
 .btn-danger{
     @apply bg-red-500 text-white;
 }
 .btn-light-outline{
-    @apply text-white border border-white;
+    @apply text-white border border-gray-400;
 }
 .btn-white-outline{
     @apply text-black border border-[#f1f1f1];

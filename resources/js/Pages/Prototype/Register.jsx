@@ -17,7 +17,7 @@ export default function Register() {
                 </div>
                 <div className="py-24 flex laptopLg:ml-[680px] laptopXl:ml-[870px]">
                     <div>
-                        <h1 className="font-bold text-[26px]">Zan Streaming</h1>
+                        <h1 className="font-bold text-[26px]">Zan Streaming...</h1>
                         <div className="my-[50px]">
                             <div className="font-semibold text-[26px] mb-3">
                                 Sign Up
@@ -68,11 +68,13 @@ export default function Register() {
                                 </div>
                             </div>
                             <div className="grid space-y-[14px] mt-[30px]">
-                                <PrimaryButton>
-                                    <span className="text-base font-semibold">
-                                        Sign Up
-                                    </span>
-                                </PrimaryButton>
+                                <Link href={route('prototype.dashboard')}>
+                                    <PrimaryButton>
+                                        <span className="text-base font-semibold">
+                                            Sign Up
+                                        </span>
+                                    </PrimaryButton>
+                                </Link>
                                 <Link href={route('prototype.login')}>
                                     <PrimaryButton variant="light-outline">
                                         <span className="text-base text-white">
