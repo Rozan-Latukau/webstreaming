@@ -9,7 +9,7 @@ export default function Show() {
         >
             <div className="pt-[100px]">
                 <ReactPlayer
-                    url="https://youtube.com/watch?v=2yofEZSZzl4&list=RD2yofEZSZzl4&start_radio=1"
+                    url="https://www.youtube.com/watch?v=nOgo2xhPZm8"
                     width={"100%"}
                     height={"80vh"}
                     controls
