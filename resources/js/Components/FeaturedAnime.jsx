@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "@inertiajs/react";
 
 FeaturedAnime.propTypes = {
     slug: PropTypes.string.isRequired,
@@ -49,7 +50,7 @@ export default function FeaturedAnime({
                     <img src="/icons/ic_play.svg" width="50" alt="" />
                 </div>
             </div>
-            <a href={slug} className="inset-0 absolute z-50"></a>
-        </div>
+            <Link href={route('prototype.anime.show', slug)} className="inset-0 absolute z-50"></Link>
+        </div >
     );
 }

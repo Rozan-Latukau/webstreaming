@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "@inertiajs/react";
 
 AnimeCard.propTypes = {
     slug: PropTypes.string.isRequired,
@@ -28,7 +29,7 @@ export default function AnimeCard({ slug, name, genre, thumbnail }) {
             >
                 <img src="/icons/ic_play.svg" className="" width="50" alt="" />
             </div>
-            <a href={slug} className="inset-0 absolute z-50"></a>
+            <Link href={route('prototype.anime.show', slug)} className="inset-0 absolute z-50"></Link>
         </div>
     );
 }
