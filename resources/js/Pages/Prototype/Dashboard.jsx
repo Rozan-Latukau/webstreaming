@@ -26,7 +26,7 @@ export default function Dashboard() {
                 </Head>
                 <div>
                     <div className="font-semibold text-[22px] text-black mb-4">
-                        Featured Movies
+                        New Anime
                     </div>
                     <Flickity className="gap-[30px]" options={flcikityOptions}>
                         {[1, 2, 3, 4].map((i) => (
@@ -43,7 +43,7 @@ export default function Dashboard() {
                 </div>
                 <div className="mt-[50px]">
                     <div className="font-semibold text-[22px] text-black mb-4">
-                        Browse
+                        All Anime
                     </div>
                     <Flickity className="gap-[30px]" options={flcikityOptions}>
                         {[1, 2, 3, 4, 5, 6].map((i) => (
