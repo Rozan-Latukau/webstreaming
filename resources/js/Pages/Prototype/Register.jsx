@@ -38,7 +38,7 @@ export default function Register() {
                                         type="text"
                                         name="fullname"
                                         placeholder="Your fullname..."
-                                        defaultValue="Angga React"
+                                        defaultValue="Rozan Naufal Latukau"
                                     />
                                 </div>
                                 <div>
@@ -50,7 +50,7 @@ export default function Register() {
                                         type="email"
                                         name="email"
                                         placeholder="Your Email Address"
-                                        defaultValue="anggaforreact@fb.com"
+                                        defaultValue="zanstreaming@gmail.com"
                                     />
 
                                 </div>
