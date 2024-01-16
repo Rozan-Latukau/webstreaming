@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\ShowController;
+use App\Http\Controllers\User\SubscriptionPlanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,9 @@ Route::redirect('/', '/login');
 
 Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashboard.')->group(function () {
     Route::get('/', [DashboardController::class,'index'])->name('index');
-    Route::get('anime/{anime:slug}', [ShowController::class, 'show'])->name('anime.show');
+    Route::get('anime/{anime:slug}', [ShowController::class, 'show'])->name('anime.show')->middleware('checkUserSubscription:true');
+    Route::get('subscription-plan', [SubscriptionPlanController::class, 'index'])->name('subscriptionplan.index')->middleware('checkUserSubscription:false');
+    Route::post('subscription-plan/{subscriptionPlan}/user-subscribe', [SubscriptionPlanController::class, 'userSubscribe'])->name('subscriptionplan.userSubscribe')->middleware('checkUserSubscription:false');
 });
 
 Route::prefix('prototype')->name('prototype.')->group(function () {
@@ -37,7 +40,7 @@ Route::prefix('prototype')->name('prototype.')->group(function () {
     route::get('/dashboard', function () {
         return Inertia::render('Prototype/Dashboard');
     }) -> name('dashboard');
-    route::get('/subscriptionplan', function () {
+    route::get('/subscriptionPlan', function () {
         return Inertia::render('Prototype/SubscriptionPlan');
     }) -> name('subscriptionplan');
     route::get('/anime/{slug}', function () {

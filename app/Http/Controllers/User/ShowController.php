@@ -11,6 +11,6 @@ class ShowController extends Controller
     public function show(Anime $anime) {
         return inertia('User/Dashboard/Anime/Show', [
             'anime' => $anime,
-        ]);;
+        ]);
     }
 }
