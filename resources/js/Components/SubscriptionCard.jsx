@@ -40,7 +40,7 @@ export default function SubscriptionCard({
                     </div>
 
                     {/* <!-- Bottom: CTA Button --> */}
-                    <div>
+                    <div onClick={onSelectSubsciption}>
                         <SecondaryButton type="button" variant="secondary">
                             <span className="text-base">Start {name}</span>
                         </SecondaryButton>

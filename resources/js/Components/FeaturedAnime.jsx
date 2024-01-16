@@ -50,7 +50,7 @@ export default function FeaturedAnime({
                     <img src="/icons/ic_play.svg" width="50" alt="" />
                 </div>
             </div>
-            <Link href={route('prototype.anime.show', slug)} className="inset-0 absolute z-50"></Link>
+            <Link href={route('user.dashboard.anime.show', slug)} className="inset-0 absolute z-50"></Link>
         </div >
     );
 }
