@@ -17,7 +17,7 @@ class AnimeController extends Controller
      */
     public function index()
     {
-        $anime = Anime::all();
+        $anime = Anime::withTrashed()->orderBy('deleted_at')->get();
         return Inertia('Admin/Anime/Index', [
             'animes' => $anime,
         ]);
@@ -41,7 +41,7 @@ class AnimeController extends Controller
         $data['slug'] = Str::slug($data['name']);
         $anime = Anime::create($data);
         return redirect(route('admin.dashboard.anime.index')) -> with([
-            'message' => "Successfully Entered Anime",
+            'message' => "Successfully Create Anime",
             'type' => 'success'
         ]);
     }
@@ -78,7 +78,7 @@ class AnimeController extends Controller
         }
         $anime->update($data);
         return redirect(route('admin.dashboard.anime.index')) -> with([
-            'message' => "Successfully Entered Anime",
+            'message' => "Successfully Update Anime",
             'type' => 'success'
         ]);
     }
@@ -88,6 +88,19 @@ class AnimeController extends Controller
      */
     public function destroy(Anime $anime)
     {
-        //
+        $anime->delete();
+        return redirect(route('admin.dashboard.anime.index')) -> with([
+            'message' => "Successfully Deleted Anime",
+            'type' => 'success'
+    ]);
+    }
+
+    public function restore($anime)
+    {
+        Anime::withTrashed()->find($anime)->restore();
+        return redirect(route('admin.dashboard.anime.index')) -> with([
+            'message' => "Successfully Restore Anime",
+            'type' => 'success'
+    ]);
     }
 }

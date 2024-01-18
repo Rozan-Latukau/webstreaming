@@ -11,7 +11,7 @@ export default function AnimeCard({ slug, name, genre, thumbnail }) {
     return (
         <div className="absolute group overflow-hidden mr-[30px]">
             <img
-                src={thumbnail}
+                src={`/storage/${thumbnail}`}
                 className="object-cover rounded-[30px] h-[340px] w-[250px]"
                 alt=""
             />

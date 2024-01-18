@@ -32,6 +32,7 @@ Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashbo
 });
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.dashboard.')->group(function () {
+    Route::put('anime/{anime}/restore', [AnimeController::class, 'restore'])->name('anime.restore');
     Route::resource('anime', AnimeController::class);
 });
 
