@@ -4,6 +4,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\ShowController;
+use App\Http\Controllers\User\SubscriptionPlanController;
+use App\Http\Controllers\Admin\AnimeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +22,19 @@ use Inertia\Inertia;
 
 
 
-Route::redirect('/', '/prototype/login');
+Route::redirect('/', '/login');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashboard.')->group(function () {
+    Route::get('/', [DashboardController::class,'index'])->name('index');
+    Route::get('anime/{anime:slug}', [ShowController::class, 'show'])->name('anime.show')->middleware('checkUserSubscription:true');
+    Route::get('subscription-plan', [SubscriptionPlanController::class, 'index'])->name('subscriptionplan.index')->middleware('checkUserSubscription:false');
+    Route::post('subscription-plan/{subscriptionPlan}/user-subscribe', [SubscriptionPlanController::class, 'userSubscribe'])->name('subscriptionplan.userSubscribe')->middleware('checkUserSubscription:false');
+});
+
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.dashboard.')->group(function () {
+    Route::put('anime/{anime}/restore', [AnimeController::class, 'restore'])->name('anime.restore');
+    Route::resource('anime', AnimeController::class);
+});
 
 Route::prefix('prototype')->name('prototype.')->group(function () {
    route::get('/login', function () {
@@ -34,7 +46,7 @@ Route::prefix('prototype')->name('prototype.')->group(function () {
     route::get('/dashboard', function () {
         return Inertia::render('Prototype/Dashboard');
     }) -> name('dashboard');
-    route::get('/subscriptionplan', function () {
+    route::get('/subscriptionPlan', function () {
         return Inertia::render('Prototype/SubscriptionPlan');
     }) -> name('subscriptionplan');
     route::get('/anime/{slug}', function () {

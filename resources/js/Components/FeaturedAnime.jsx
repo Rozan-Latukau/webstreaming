@@ -20,7 +20,7 @@ export default function FeaturedAnime({
         <div className="absolute overflow-hidden group mr-[30px]">
             {/* <!-- Movie Thumbnail --> */}
             <img
-                src={thumbnail}
+                src={`/storage/${thumbnail}`}
                 className="object-cover rounded-[30px] w-[520px] h-[340px]"
                 alt=""
             />
@@ -50,7 +50,7 @@ export default function FeaturedAnime({
                     <img src="/icons/ic_play.svg" width="50" alt="" />
                 </div>
             </div>
-            <Link href={route('prototype.anime.show', slug)} className="inset-0 absolute z-50"></Link>
+            <Link href={route('user.dashboard.anime.show', slug)} className="inset-0 absolute z-50"></Link>
         </div >
     );
 }
