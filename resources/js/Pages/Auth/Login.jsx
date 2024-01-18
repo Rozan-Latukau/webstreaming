@@ -29,7 +29,7 @@ export default function Login() {
             <div className="mx-auto max-w-screen min-h-screen bg-black text-white md:px-10 px-3">
                 <div className="fixed top-[-50px] hidden lg:block">
                     <img
-                        src="/images/signup-image.png"
+                        src="/images/anime.jpeg"
                         className="hidden laptopLg:block laptopLg:max-w-[450px] laptopXl:max-w-[640px]"
                         alt=""
                     />
