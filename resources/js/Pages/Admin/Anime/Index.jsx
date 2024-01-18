@@ -1,6 +1,6 @@
 import Authenticated from "@/Layouts/Authenticated/index";
 import ButtonPrimary from "@/Components/PrimaryButton";
-import FlashMessage from "@/Components/flashMessage";
+import FlashMessage from "@/Components/FlashMessage";
 import SecondaryButton from "@/Components/SecondaryButton";
 import DangerButton from "@/Components/DangerButton";
 import { Link, Head, useForm } from "@inertiajs/react";
